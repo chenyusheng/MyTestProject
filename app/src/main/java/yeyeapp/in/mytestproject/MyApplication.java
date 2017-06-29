@@ -2,9 +2,13 @@ package yeyeapp.in.mytestproject;
 
 import android.app.Application;
 
+import com.blankj.utilcode.util.Utils;
 import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.Settings;
+
+import yeyeapp.in.mytestproject.Utils.AppDataUtil;
+import yeyeapp.in.mytestproject.Utils.CrashHandler;
 
 /**
  * <pre>
@@ -21,8 +25,12 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         initLogger();
+        Utils.init(this);
+        AppDataUtil.getInstance().init( this,true);//初始化项目数据管理工具
     }
 
+    //初始化工具集
+    //一个很全的工具集合库 文档：https://github.com/Blankj/AndroidUtilCode 简书：http://www.jianshu.com/p/72494773aace
     void initLogger() {
         boolean isDebug = true;
         Settings logger = Logger.init("生哥哥(メ｀[]´)/ ")
@@ -33,5 +41,12 @@ public class MyApplication extends Application {
         } else {
             logger.logLevel(LogLevel.NONE);
         }
+    }
+    /*
+    * 错误收集可以用 bugly
+    * */
+    private void initErrorHandler(MyApplication appInstance) {
+        CrashHandler handler = CrashHandler.getInstance();
+        handler.init(appInstance);
     }
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DragBubbleView">
+        <attr name="bubbleRadius" format="dimension" />
+        <attr name="bubbleColor" format="color" />
+        <attr name="text" format="string" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+    <!--自定义评分组件属性-->
+    <declare-styleable name="MarkingView">
+        <attr name="bottomColor" format="color" />
+        <attr name="topColor" format="color" />
+        <attr name="centerColor" format="color" />
+        <attr name="endAngle" format="integer" />
+        <attr name="startAngle" format="integer" />
+        <attr name="duation" format="integer" />
+        <attr name="ringWidth" format="dimension" />
+    </declare-styleable>
+</resources>
