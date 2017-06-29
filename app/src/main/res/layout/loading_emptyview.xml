@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/emptyView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_black"
+    android:clickable="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <!--<ProgressBar xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:id="@+id/emptyView2"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:background="@color/white"-->
+        <!--android:indeterminateDrawable="@anim/loading_view" />-->
+
+
+    <!--<in.yeyeapp.view.AVLoadingIndicatorView-->
+        <!--android:id="@+id/avloadingIndicatorView"-->
+        <!--app:indicator="BallClipRotatePulse"-->
+        <!--app:indicator_color="@color/golden"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:visibility="visible"-->
+        <!--tools:ignore="DuplicateIncludedIds" />-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="65dp"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:text="加载中"-->
+        <!--android:textColor="@color/main_purple" />-->
+    <!--<include-->
+    <!--refound_pop_window="@refound_pop_window/loading_emptyview" />-->
+
+</LinearLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>--><!--<ProgressBar xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:id="@+id/emptyView"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:layout_centerInParent="true"--><!--android:layout_gravity="center"--><!--android:layout_centerHorizontal="true"--><!--android:layout_centerVertical="true"--><!--android:background="@color/white"--><!--android:indeterminateDrawable="@anim/loading_view" />--><!--android:indeterminateDrawable="@drawable/loading_progressbar_rotate"-->

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/btn_yeye_buttom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/seletor_color_yeye_gold_btn"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:duplicateParentState="true">
+
+            <!--
+                style="?android:attr/progressBarStyle"
+                -->
+            <ImageView
+                android:id="@+id/loadingImageView"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/tv_btn"
+                android:src="@drawable/ratio_circle"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+
+            <!--<ProgressBar-->
+            <!--android:id="@+id/progressBar"-->
+            <!--style="@style/myRoundedProgressBar"-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_margin="8dp"-->
+            <!--android:layout_toLeftOf="@+id/tv_btn"-->
+            <!--android:visibility="gone" />-->
+
+            <TextView
+                android:id="@+id/tv_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:duplicateParentState="true"
+                android:text="确定"
+                android:textColor="@color/seletor_text_color_yeye_gold_btn"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

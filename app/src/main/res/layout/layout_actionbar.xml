@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!--//通过这个空间调节 ActionBar 的颜色及透明度-->
+    <ImageView
+        android:id="@+id/bg_color"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_black" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp">
+        <!--返回按钮-->
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/selector_btn_back"
+            android:contentDescription=""
+            android:padding="10dp"
+            android:src="@drawable/action_back_white"
+            tools:ignore="ContentDescription" />
+        <!--标题-->
+        <TextView
+            android:id="@+id/btn_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            tools:text="title" />
+        <!--搜索框-->
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="65dp"
+            android:background="@drawable/bg_search_input"
+            android:drawableLeft="@drawable/search_golden"
+            android:drawablePadding="5dp"
+            android:ellipsize="end"
+            android:hint="搜索商家、商圈、套餐、娱乐顾问"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:textColor="@color/golden"
+            android:textColorHint="@color/golden"
+            android:textSize="12sp"
+            android:visibility="gone" />
+        <!--常规的右边动作按钮-->
+        <!--通过 drawable 修改图标-->
+        <TextView
+            android:id="@+id/btn_action"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical|right"
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:visibility="gone"
+            tools:text="设置" />
+
+        <include
+            layout="@layout/layout_divide_dark_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</RelativeLayout>

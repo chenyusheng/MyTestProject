@@ -14,10 +14,10 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import in.yeyeapp.R;
-import in.yeyeapp.listeners.OnItemClickListener;
-import in.yeyeapp.utils.CircularAnim;
-import in.yeyeapp.utils.Util_Common;
+import yeyeapp.in.mytestproject.R;
+import yeyeapp.in.mytestproject.Utils.CircularAnim;
+import yeyeapp.in.mytestproject.Utils.CommonUtils;
+import yeyeapp.in.mytestproject.listener.OnItemClickListener;
 
 /**
  * Created by yusheng on 2017/3/15.
@@ -62,7 +62,7 @@ public class YeYeListView extends RelativeLayout {
         emptyText.setText(a.getString(R.styleable.YeYeListView_empty_text));
         emptyText.setTextColor(a.getColor(R.styleable.YeYeListView_empty_textColor, context.getResources().getColor(R.color.text_color_gray)));
         swipeLayout.setColorSchemeColors(a.getColor(R.styleable.YeYeListView_refresh_Color, context.getResources().getColor(R.color.golden)));
-        emptyText.setTextSize(TypedValue.COMPLEX_UNIT_PX, a.getDimensionPixelSize(R.styleable.YeYeListView_empty_textSize, Util_Common.getPxFromDp(context, 14)));
+        emptyText.setTextSize(TypedValue.COMPLEX_UNIT_PX, a.getDimensionPixelSize(R.styleable.YeYeListView_empty_textSize, CommonUtils.sp2px(context, 14)));
         duration = a.getInt(R.styleable.YeYeListView_yeye_duration, 250);
 
         a.recycle();

@@ -1,5 +1,6 @@
 package yeyeapp.in.mytestproject.Utils;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
@@ -23,6 +24,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.KeyboardUtils;
+import com.lzy.imagepicker.view.SystemBarTintManager;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -74,6 +76,12 @@ public class CommonUtils {
                 }
             }
         }, MILLISECONDS);
+    }
+
+    //获取状态栏高度
+    public static int getStatusBarHeight(Activity activity) {
+        SystemBarTintManager s = new SystemBarTintManager(activity);
+        return s.getConfig().getStatusBarHeight();
     }
 
     //保留两位有效数字
@@ -203,6 +211,7 @@ public class CommonUtils {
         }
         return null;
     }
+
     /* 根据文件路径转换为bitmap */
     public static Bitmap getBitemapFromFile(String fileName) {
         try {
@@ -303,6 +312,7 @@ public class CommonUtils {
 
     // 获取icon font字体
     private static Typeface mIconFont;
+
     public static Typeface getIconFont(Context context) {
         if (mIconFont == null) {
             mIconFont = Typeface.createFromAsset(context.getAssets(),

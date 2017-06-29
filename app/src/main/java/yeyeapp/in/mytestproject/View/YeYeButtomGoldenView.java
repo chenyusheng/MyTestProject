@@ -14,10 +14,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import in.yeyeapp.R;
-import in.yeyeapp.listeners.OnSuccessListener;
-import in.yeyeapp.utils.CircularAnim;
-import in.yeyeapp.utils.Util_Common;
+import yeyeapp.in.mytestproject.R;
+import yeyeapp.in.mytestproject.Utils.CircularAnim;
+import yeyeapp.in.mytestproject.Utils.CommonUtils;
+import yeyeapp.in.mytestproject.listener.OnSuccessListener;
 
 /**
  * Created by yusheng on 2017/3/15.
@@ -60,9 +60,9 @@ public class YeYeButtomGoldenView extends RelativeLayout {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.YeYeButtomGoldenView);
         tv_btn.setText(a.getString(R.styleable.YeYeButtomGoldenView_btn_text));
         tv_btn.setTextColor(a.getColor(R.styleable.YeYeButtomGoldenView_btn_textColor, context.getResources().getColor(R.color.text_golden)));
-        tv_btn.setTextSize(TypedValue.COMPLEX_UNIT_PX, a.getDimensionPixelSize(R.styleable.YeYeButtomGoldenView_btn_textSize, Util_Common.getPxFromDp(context, 16)));
+        tv_btn.setTextSize(TypedValue.COMPLEX_UNIT_PX, a.getDimensionPixelSize(R.styleable.YeYeButtomGoldenView_btn_textSize, CommonUtils.sp2px(context, 16)));
         duration = a.getInt(R.styleable.YeYeButtomGoldenView_btn_duration, 250);
-        cardView.setRadius(Util_Common.getPxFromDp(context, a.getInt(R.styleable.YeYeButtomGoldenView_btn_radius, 5)));
+        cardView.setRadius(CommonUtils.dp2px(context, a.getInt(R.styleable.YeYeButtomGoldenView_btn_radius, 5)));
         cardView.setUseCompatPadding(a.getBoolean(R.styleable.YeYeButtomGoldenView_btn_compat_padding, false));
         a.recycle();
     }

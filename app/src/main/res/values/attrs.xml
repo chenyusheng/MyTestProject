@@ -17,4 +17,47 @@
         <attr name="duation" format="integer" />
         <attr name="ringWidth" format="dimension" />
     </declare-styleable>
+    <!--自定义金色按钮属性-->
+    <declare-styleable name="YeYeButtomGoldenView">
+        <attr name="btn_textColor" format="color" />
+        <attr name="btn_text" format="string" />
+        <attr name="btn_duration" format="integer" />
+        <attr name="btn_textSize" format="dimension" />
+        <attr name="btn_radius" format="integer" />
+        <attr name="btn_compat_padding" format="boolean" />
+    </declare-styleable>
+    <!--自定义 ActionBar 组件属性-->
+    <declare-styleable name="YeYeActionBar">
+        <attr name="yeyeActionbar_backgroundColor" format="color" />
+
+        <attr name="yeyeActionbar_titleText" format="string" />
+        <attr name="yeyeActionbar_titleTextColor" format="color" />
+        <attr name="yeyeActionbar_titleTextSize" format="dimension" />
+
+        <attr name="yeyeActionbar_actionText" format="string" />
+        <attr name="yeyeActionbar_actionTextSize" format="dimension" />
+        <attr name="yeyeActionbar_actionTextColor" format="color" />
+        <attr name="yeyeActionbar_actionDrawable" format="reference" />
+        <attr name="yeyeActionbar_actionDrawableIsLeft" format="boolean" />
+        <attr name="yeyeActionbar_isShowDivider" format="boolean" />
+
+        <attr name="yeyeActionbar_IsShowAction" format="boolean" />
+        <attr name="yeyeActionBar_IsShowStatuBar" format="boolean" />
+
+        <attr name="yeyeActionbar_IsSearch" format="boolean" />
+        <attr name="yeyeActionbar_searchHint" format="string" />
+        <attr name="yeyeActionbar_searchDrawable" format="reference" />
+        <attr name="yeyeActionbar_searchTextColor" format="color" />
+        <attr name="yeyeActionbar_searchTextSize" format="dimension" />
+
+    </declare-styleable>
+    <!--自定义列表组件属性-->
+    <declare-styleable name="YeYeListView">
+        <attr name="empty_textColor" format="color" />
+        <attr name="refresh_Color" format="color" />
+        <attr name="refresh_waveColor" format="color" />
+        <attr name="empty_text" format="string" />
+        <attr name="yeye_duration" format="integer" />
+        <attr name="empty_textSize" format="dimension" />
+    </declare-styleable>
 </resources>

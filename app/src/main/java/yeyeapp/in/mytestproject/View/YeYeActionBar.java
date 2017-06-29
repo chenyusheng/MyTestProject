@@ -14,10 +14,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import in.yeyeapp.R;
-import in.yeyeapp.ui.MainActivity_;
-import in.yeyeapp.utils.Util_Common;
-import in.yeyeapp.utils.Util_Keyboard;
+import com.blankj.utilcode.util.KeyboardUtils;
+
+import yeyeapp.in.mytestproject.R;
+import yeyeapp.in.mytestproject.Utils.CommonUtils;
+
 
 /**
  * Created by yusheng on 2017/3/21.
@@ -80,9 +81,9 @@ public class YeYeActionBar extends RelativeLayout {
         yeyeActionbar_searchTextColor = a.getColor(R.styleable.YeYeActionBar_yeyeActionbar_searchTextColor, context.getResources().getColor(R.color.text_color_gray));
         yeyeActionbar_backgroundColor = a.getColor(R.styleable.YeYeActionBar_yeyeActionbar_backgroundColor, context.getResources().getColor(R.color.bg_black));
 
-        yeyeActionbar_titleTextSize = a.getDimensionPixelSize(R.styleable.YeYeActionBar_yeyeActionbar_titleTextSize, Util_Common.getPxFromDp(context, 16));
-        yeyeActionbar_actionTextSize = a.getDimensionPixelSize(R.styleable.YeYeActionBar_yeyeActionbar_actionTextSize, Util_Common.getPxFromDp(context, 14));
-        yeyeActionbar_searchTextSize = a.getDimensionPixelSize(R.styleable.YeYeActionBar_yeyeActionbar_searchTextSize, Util_Common.getPxFromDp(context, 12));
+        yeyeActionbar_titleTextSize = a.getDimensionPixelSize(R.styleable.YeYeActionBar_yeyeActionbar_titleTextSize, CommonUtils.sp2px(context, 16));
+        yeyeActionbar_actionTextSize = a.getDimensionPixelSize(R.styleable.YeYeActionBar_yeyeActionbar_actionTextSize, CommonUtils.sp2px(context, 14));
+        yeyeActionbar_searchTextSize = a.getDimensionPixelSize(R.styleable.YeYeActionBar_yeyeActionbar_searchTextSize, CommonUtils.sp2px(context, 12));
 
         yeyeActionbar_actionDrawable = a.getDrawable(R.styleable.YeYeActionBar_yeyeActionbar_actionDrawable);
         yeyeActionbar_searchDrawable = a.getDrawable(R.styleable.YeYeActionBar_yeyeActionbar_searchDrawable);
@@ -223,7 +224,7 @@ public class YeYeActionBar extends RelativeLayout {
     }
 
     public void hideKeyBoard() {
-        Util_Keyboard.hideKeybord(et_search);
+        KeyboardUtils.hideSoftInput((Activity) context);
     }
 
     //设置 background
@@ -245,7 +246,7 @@ public class YeYeActionBar extends RelativeLayout {
     //是否需要状态栏
     public void setStatuHeight(boolean i) {
         if (i) {
-            rootView.setPadding(0, Util_Common.getStatusBarHeight(((Activity) context)), 0, 0);
+            rootView.setPadding(0, CommonUtils.getStatusBarHeight(((Activity) context)), 0, 0);
         } else {
             rootView.setPadding(0, 0, 0, 0);
         }
@@ -258,9 +259,7 @@ public class YeYeActionBar extends RelativeLayout {
             listener = new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (((Activity) context) instanceof MainActivity_) {
-                        ((MainActivity_) context).popFragment();
-                    }
+
                 }
             };
         }
