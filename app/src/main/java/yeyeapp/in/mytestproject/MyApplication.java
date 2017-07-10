@@ -1,11 +1,14 @@
 package yeyeapp.in.mytestproject;
 
 import android.app.Application;
+import android.view.Gravity;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.blankj.utilcode.util.Utils;
 import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.Settings;
+import com.tencent.bugly.Bugly;
 
 import yeyeapp.in.mytestproject.Utils.AppDataUtil;
 import yeyeapp.in.mytestproject.Utils.CrashHandler;
@@ -27,6 +30,8 @@ public class MyApplication extends Application {
         initLogger();
         Utils.init(this);
         AppDataUtil.getInstance().init( this,true);//初始化项目数据管理工具
+        initErrorHandler(this);
+        initBugly();
     }
 
     //初始化工具集
@@ -49,4 +54,9 @@ public class MyApplication extends Application {
         CrashHandler handler = CrashHandler.getInstance();
         handler.init(appInstance);
     }
+
+    private void initBugly(){
+        Bugly.init(getApplicationContext(), "583a88c62c", !AppDataUtil.getInstance().isReleaseFlag());
+    }
+
 }

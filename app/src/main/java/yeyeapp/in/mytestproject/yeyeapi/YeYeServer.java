@@ -29,6 +29,12 @@ public class YeYeServer {
         return instance;
     }
 
+    /**
+     *
+     * @param mdid 用户 id
+     * @param observer 观察者对象
+     */
+
     void getUserData(String mdid ,Observer observer){
         yeYeAPI.getUserData2(mdid).retry(3).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }

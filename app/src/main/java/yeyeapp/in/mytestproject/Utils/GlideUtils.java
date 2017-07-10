@@ -109,8 +109,10 @@ public class GlideUtils {
 
     public static void showImage(Activity activity, ImageView imageView, String url) {
         if (imageView == null) {
+            MyLog.log("imageView == null");
             return;
         }
+        MyLog.log("url = "+url);
         //绑定 Activity 的生命周期
         GlideApp.with(activity)
                 .load(url)
