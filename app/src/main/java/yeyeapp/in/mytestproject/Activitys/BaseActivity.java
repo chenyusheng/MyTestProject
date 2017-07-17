@@ -1,12 +1,22 @@
 package yeyeapp.in.mytestproject.Activitys;
 
+import android.annotation.TargetApi;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.transition.Explode;
+import android.transition.Fade;
+import android.transition.Slide;
 import android.view.InflateException;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -17,6 +27,7 @@ import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
 
 import yeyeapp.in.mytestproject.R;
+import yeyeapp.in.mytestproject.Utils.ConstantUtil;
 import yeyeapp.in.mytestproject.Utils.MyLog;
 
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
@@ -30,9 +41,12 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     private boolean isFirst = true;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        setTransition();
         setContentView(R.layout.base_activity);
 
         actionBar = (RelativeLayout) findViewById(R.id.action_bar);
@@ -43,6 +57,55 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         btnBack.setOnClickListener(this);
         tvTitle.setOnClickListener(this);
         btnAction.setOnClickListener(this);
+//        setTransition();
+    }
+
+    /**
+     * 在intent的extras中设置当前activity的切换效果
+     */
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    void setTransition() {
+        MyLog.log("开始设置 动画");
+        Intent intent = getIntent();
+        if (intent == null) {
+            return;
+        }
+        Bundle bundle = intent.getExtras();
+        if (bundle == null) {
+            return;
+        }
+        String flagEnter = bundle.getString(ConstantUtil.FlagEnter);
+        String flagExit = bundle.getString(ConstantUtil.FlagExit);
+        //设置进入动画
+        if (!TextUtils.isEmpty(flagEnter)) {
+            switch (flagEnter) {
+                case ConstantUtil.TransitionExplore:
+                    getWindow().setEnterTransition(new Explode());
+                    break;
+                case ConstantUtil.TransitionFade:
+                    getWindow().setEnterTransition(new Fade());
+                    break;
+                case ConstantUtil.TransitionSlide:
+                    getWindow().setEnterTransition(new Slide());
+                    break;
+                default:
+            }
+        }
+        //设置退出动画
+        if (!TextUtils.isEmpty(flagExit)) {
+            switch (flagExit) {
+                case ConstantUtil.TransitionExplore:
+                    getWindow().setExitTransition(new Explode());
+                    break;
+                case ConstantUtil.TransitionFade:
+                    getWindow().setExitTransition(new Fade());
+                    break;
+                case ConstantUtil.TransitionSlide:
+                    getWindow().setExitTransition(new Slide());
+                    break;
+                default:
+            }
+        }
     }
 
     @Override
@@ -150,7 +213,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.btn_back:
                 MyLog.log("in base");
-                this.finish();
+                onBackPressed();
                 break;
             case R.id.btn_action:
                 Toast.makeText(this, "click action!", Toast.LENGTH_SHORT).show();
@@ -202,4 +265,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      * 初始化view
      */
     public abstract void initView();
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        MyLog.log("back press");
+        System.gc();
+    }
 }

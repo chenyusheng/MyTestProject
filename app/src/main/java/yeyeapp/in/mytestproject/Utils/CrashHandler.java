@@ -26,8 +26,8 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     public void init(Context ctx) {
         mContext = ctx;
-        mHandler = Thread.getDefaultUncaughtExceptionHandler();
         Thread.setDefaultUncaughtExceptionHandler(this);
+        mHandler = Thread.getDefaultUncaughtExceptionHandler();
     }
 
     @Override

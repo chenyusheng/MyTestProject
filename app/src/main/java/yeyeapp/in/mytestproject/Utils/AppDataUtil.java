@@ -15,7 +15,7 @@ import com.blankj.utilcode.util.CacheUtils;
  */
 public class AppDataUtil {
 
-    private static AppDataUtil instance;
+    private volatile static AppDataUtil instance;
     private boolean releaseFlag = false;//当前是否开发版
     private Context context;
     CacheUtils cache;//缓存工具

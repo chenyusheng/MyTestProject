@@ -1,9 +1,12 @@
 package yeyeapp.in.mytestproject;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.annotation.RequiresApi;
 import android.support.v4.util.ArrayMap;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +32,7 @@ import java.util.Iterator;
 import yeyeapp.in.mytestproject.Activitys.Activity2;
 import yeyeapp.in.mytestproject.Activitys.ActivityImage;
 import yeyeapp.in.mytestproject.Activitys.BaseActivity;
+import yeyeapp.in.mytestproject.Utils.ConstantUtil;
 import yeyeapp.in.mytestproject.Utils.GlideUtils;
 import yeyeapp.in.mytestproject.Utils.MyLog;
 
@@ -103,11 +107,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         MyLog.log(sb.toString());
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv:
-                startActivity(new Intent(this, ActivityImage.class));
+                Intent i = new Intent(this, ActivityImage.class);
+//                i.putExtra(ConstantUtil.FlagEnter,ConstantUtil.TransitionFade);
+                i.putExtra(ConstantUtil.FlagExit,ConstantUtil.TransitionFade);
+//                startActivity(new Intent(this, ActivityImage.class));
+//                startActivity(new Intent(this, ActivityImage.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+                startActivity(i, ActivityOptions.makeSceneTransitionAnimation(this,v,"my_pic").toBundle());
+
                 break;
             case R.id.tv_test_metric:
                 testDisplayMetrics();

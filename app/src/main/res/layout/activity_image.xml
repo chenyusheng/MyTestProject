@@ -9,6 +9,7 @@
         android:layout_height="300dp"
         android:background="@color/bg_black"
         android:layout_gravity="center"
+        android:transitionName="my_pic"
         android:src="@drawable/empty_view"
         android:scaleType="fitCenter"/>
 </LinearLayout>

@@ -1,8 +1,11 @@
 package yeyeapp.in.mytestproject.Activitys;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 
 import yeyeapp.in.mytestproject.R;
@@ -22,7 +25,6 @@ public class ActivityImage extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentLayout(R.layout.activity_image);
-
     }
 
     @Override
@@ -41,9 +43,27 @@ public class ActivityImage extends BaseActivity {
             @Override
             public void onClick(View v) {
                 showMesg("点击图片", false);
-
                 GlideUtils.showImage(activity, iv_img, "http://cdn.mygxt.com/mygxt/201408/25/201408251625077031.jpg");
             }
         });
+        setBackClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        MyLog.log("back press");
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        MyLog.log("onKeyDown,keyCode = "+keyCode+" event = "+event.getAction());
+        return super.onKeyDown(keyCode, event);
+
     }
 }
