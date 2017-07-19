@@ -1,0 +1,124 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '26'
+    lintOptions {
+        abortOnError false
+        disable 'MissingTranslation'
+        disable 'ExtraTranslation'
+    }
+//    configurations {
+//        all*.exclude module: 'okhttp'
+//        all*.exclude module: 'okio'
+//    }
+    defaultConfig {
+        applicationId "yeyeapp.in.mytestproject"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi', 'arm64-v8a'//,'x86', 'armeabi-v7a', 'x86_64',
+        }
+    }
+//    signingConfigs {
+//        debug {
+////            storeFile file('debug.keystore')
+////            storePassword "android"
+////            keyAlias "androiddebugkey"
+////            keyPassword "android"
+//            storeFile file("liangzhenyu.jks")
+//            storePassword KEY_PASSWORD
+//            keyAlias "mykey"
+//            keyPassword KEY_PASSWORD
+//        }
+//        release {
+//            storeFile file("liangzhenyu.jks")
+//            storePassword KEY_PASSWORD
+//            keyAlias "mykey"
+//            keyPassword KEY_PASSWORD
+//        }
+//    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+    flatDir {
+        dirs 'libs'
+    }
+}
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    //一个仿ios的选择库
+//    compile project(':pickerview')
+    
+    //leakcanary 内存泄露检测的库 文档：https://github.com/square/leakcanary
+    //    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
+    //    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:cardview-v7:25.3.1'
+    //RxJava 文档：https://github.com/ReactiveX/RxJava //RxJava 文档：https://github.com/ReactiveX/RxJava
+    //retrofit 网络请求库，能过完美适应 rxjava，先切换试试,搭配 okhttp，与 RxJava，OkHttp 合称三剑客，文档：https://github.com/square/retrofit
+    //rxPermission 一个使用 Rx 方式请求权限的库，主要解决 sdk>23之后的危险权限需要动态处理的问题 文档：https://github.com/tbruyelle/RxPermissions
+    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
+    compile 'com.squareup.okhttp3:okhttp:3.8.1'
+    //日志打印
+    compile 'com.orhanobut:logger:1.15'
+    //一个很全的工具集合库 文档：https://github.com/Blankj/AndroidUtilCode 简书：http://www.jianshu.com/p/72494773aace
+    compile 'com.blankj:utilcode:1.6.4'
+    //    事件通知组件 最好切换到3.0+
+    compile 'de.greenrobot:eventbus:2.4.0'
+    //一个图片选择库 建议换成仿微信的库
+    compile 'com.lzy.widget:imagepicker:0.5.5'
+    //文档 https://github.com/Justson/AgentWeb
+    compile 'com.just.agentweb:agentweb:1.2.1'
+    //自带样式的 textview 文档：https://github.com/chenBingX/SuperTextView/blob/master/README_zh.md
+    compile 'com.github.chenBingX:SuperTextView:v1.3'
+    //一个专注banner的库
+    compile 'com.youth.banner:banner:1.4.9'
+    //一个与 viewpager 配合使用的 tablayout
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar'
+    //自动换行的流式布局 文档：https://github.com/hongyangAndroid/FlowLayout
+    compile 'com.zhy:flowlayout-lib:1.0.3'
+    //glide 图片加载库 文档 类似的还有 picasso Fresco UIL
+    //glide默认是httpconnection,加这个是换成okhttp
+    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
+    compile 'com.github.bumptech.glide:okhttp3-integration:4.0.0-RC1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC1'
+
+    //bugly 用于收集app运行日志的，还有提供应用内更新+统计数据
+    //compile 'com.tencent.bugly:crashreport:latest.release'//其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.3.2
+    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'//其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
+    compile 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+}
