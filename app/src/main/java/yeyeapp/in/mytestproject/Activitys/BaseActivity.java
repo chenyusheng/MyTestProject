@@ -244,10 +244,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      */
     public void showMesg(String s, boolean isLong) {
         if (isLong) {
-//            Toast.makeText(this, s, Toast.LENGTH_LONG).show();
             ToastUtils.showLongSafe(s);
         } else {
-//            Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
             ToastUtils.showShortSafe(s);
         }
     }

@@ -7,9 +7,9 @@ import java.io.Serializable;
  */
 
 public class RetrofitResult<T>  implements Serializable {
-    public int errcode;
-    public String errmessage;
-    public T data;
+    private int errcode;
+    private String errmessage;
+    private T data;
 
     public boolean isSuccess() {
         return errcode == 0 ? true : false;

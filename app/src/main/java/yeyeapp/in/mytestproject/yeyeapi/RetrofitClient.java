@@ -22,7 +22,7 @@ import yeyeapp.in.mytestproject.Utils.MyLog;
 
 public class RetrofitClient {
 
-    public static RetrofitClient mInstance;
+    public static volatile RetrofitClient mInstance;
     public Retrofit mRetrofit;
     OkHttpClient okio;
     Gson gson;

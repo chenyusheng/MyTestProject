@@ -1,7 +1,5 @@
 package yeyeapp.in.mytestproject.yeyeapi;
 
-import java.util.List;
-
 import io.reactivex.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
