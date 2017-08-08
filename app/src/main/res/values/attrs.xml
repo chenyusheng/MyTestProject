@@ -17,6 +17,25 @@
         <attr name="duation" format="integer" />
         <attr name="ringWidth" format="dimension" />
     </declare-styleable>
+
+    <!--点击效果-->
+    <declare-styleable name="RippleView">
+        <attr name="rv_alpha" format="integer" />
+        <attr name="rv_framerate" format="integer" />
+        <attr name="rv_rippleDuration" format="integer" />
+        <attr name="rv_zoomDuration" format="integer" />
+        <attr name="rv_color" format="color" />
+        <attr name="rv_centered" format="boolean" />
+        <attr name="rv_type" format="enum">
+            <enum name="simpleRipple" value="0" />
+            <enum name="doubleRipple" value="1" />
+            <enum name="rectangle" value="2" />
+        </attr>
+        <attr name="rv_ripplePadding" format="dimension" />
+        <attr name="rv_zoom" format="boolean" />
+        <attr name="rv_zoomScale" format="float" />
+
+    </declare-styleable>
     <!--自定义金色按钮属性-->
     <declare-styleable name="YeYeButtomGoldenView">
         <attr name="btn_textColor" format="color" />
